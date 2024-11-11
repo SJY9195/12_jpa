@@ -81,4 +81,16 @@ public class CategoryService {
         categoryRepository.delete(category);
         return true;
     }
+
+
+    public Integer findByCategory(int code) {
+
+        Category category = categoryRepository.findByCategoryCode(code);
+
+        if(Objects.isNull(category)){
+            return null;
+        }
+        return category.getCategoryCode();
+
+    }
 }
