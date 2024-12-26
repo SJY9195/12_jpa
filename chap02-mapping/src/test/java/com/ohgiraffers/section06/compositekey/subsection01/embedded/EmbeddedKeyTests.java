@@ -60,6 +60,4 @@ public class EmbeddedKeyTests {
         Member foundMember = entityManager.find(Member.class, member.getMemberPK());
         Assertions.assertEquals(member.getMemberPK(), foundMember.getMemberPK());
     }
-
-
 }

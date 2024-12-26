@@ -17,6 +17,7 @@ public class MenuService {
 
     @Autowired
     private MenuRepository menuRepository;
+
     @Autowired
     private CategoryRepository categoryRepository;
 
@@ -62,6 +63,28 @@ public class MenuService {
         Menu result = menuRepository.save(newMenu);
 
         return result;
+    }
+
+    public Object updateMenu(MenuDTO menuDTO){
+
+        Menu menu = menuRepository.findByMenuCode(menuDTO.getMenuCode());
+        if(!Objects.isNull(menu)){
+            menu.setMenuName(menuDTO.getMenuName());
+            menu.setMenuPrice(menuDTO.getMenuPrice());
+            menu.setOrderableStatus(menuDTO.getOrderableStatus());
+        }
+
+        Menu result = menuRepository.save(menu);
+        return result;
+
+    }
+
+    public boolean deleteMenu(MenuDTO menuDTO){
+        Menu menu = menuRepository.findByMenuCode(menuDTO.getMenuCode());
+        if(!Objects.isNull(menu)){
+            menuRepository.delete(menu);
+        }
+        return true;
     }
 }
 

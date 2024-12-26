@@ -46,10 +46,10 @@ public class MenuAndCategory {
     * */
 
     @JoinColumn(name = "category_code")
-//   @ManyToOne(cascade = CascadeType.PERSIST)  //참조받으려는 것(자식)에 어노테이션!
+    @ManyToOne(cascade = CascadeType.PERSIST)  //참조받으려는 것(자식)에 어노테이션!
 //    @ManyToOne(cascade = CascadeType.MERGE)
 //    @ManyToOne(cascade = CascadeType.REMOVE)
-    @ManyToOne(cascade = CascadeType.DETACH)
+//    @ManyToOne(cascade = CascadeType.DETACH)
     private Category category;
 
     @Column(name = "orderable_status")

@@ -10,14 +10,25 @@ public class MenuDTO {
 
     private String orderableStatus;
 
+    private int menuCode;
+
     public MenuDTO() {
     }
 
-    public MenuDTO(String menuName, int menuPrice, int categoryCode, String orderableStatus) {
+    public MenuDTO(String menuName, int menuPrice, int categoryCode, String orderableStatus, int menuCode) {
         this.menuName = menuName;
         this.menuPrice = menuPrice;
         this.categoryCode = categoryCode;
         this.orderableStatus = orderableStatus;
+        this.menuCode = menuCode;
+    }
+
+    public int getMenuCode() {
+        return menuCode;
+    }
+
+    public void setMenuCode(int menuCode) {
+        this.menuCode = menuCode;
     }
 
     public String getMenuName() {
@@ -59,6 +70,7 @@ public class MenuDTO {
                 ", menuPrice=" + menuPrice +
                 ", categoryCode=" + categoryCode +
                 ", orderableStatus='" + orderableStatus + '\'' +
+                ", menuCode=" + menuCode +
                 '}';
     }
 

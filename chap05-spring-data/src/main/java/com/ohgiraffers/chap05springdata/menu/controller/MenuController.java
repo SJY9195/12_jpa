@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/menu")
 public class MenuController {
 
     @Autowired
     private MenuService menuService;
+
     @Autowired
     private MenuRepository menuRepository;
 
@@ -28,7 +28,9 @@ public class MenuController {
     }
 
     @PostMapping("insert")
-    public ResponseEntity insertMenu(@RequestBody MenuDTO menuDTO){
+    public ResponseEntity insertMenu(
+            @RequestBody MenuDTO menuDTO
+    ){
 
         Object result = menuService.insertMenu(menuDTO);
 
@@ -36,9 +38,31 @@ public class MenuController {
             Menu response = (Menu) result;
             return ResponseEntity.ok(response);
         }
-
            return ResponseEntity.status(404).body(result);
-
     }
 
+    @PostMapping("update")
+    public ResponseEntity updateMenu(
+            @RequestBody MenuDTO menuDTO
+    ){
+        Object result = menuService.updateMenu(menuDTO);
+
+        if(result instanceof Menu){
+            Menu response = (Menu) result;
+            return ResponseEntity.ok(response);
+        }
+        return ResponseEntity.status(404).body(result);
+    }
+
+    @DeleteMapping("delete")
+    public ResponseEntity deleteMenu(
+            @RequestBody MenuDTO menuDTO
+    ){
+        boolean result = menuService.deleteMenu(menuDTO);
+
+        if(result){
+            return ResponseEntity.ok("삭제 성공");
+        }
+        return ResponseEntity.status(404).body(result);
+    }
 }

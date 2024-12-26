@@ -25,7 +25,6 @@ public class CategoryService {
         return categoryList;
     }
 
-
     public Category selectCategoryByCode(Integer categoryCode){
         Category category = categoryRepository.findByCategoryCode(categoryCode);
 
@@ -34,7 +33,6 @@ public class CategoryService {
         }
         return category;
     }
-
 
     public Category insertCategory(String categoryName) {
 

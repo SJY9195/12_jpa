@@ -127,7 +127,6 @@ public class ManyToOneAssociationTests {
         Category foundCategory = entityManager.find(Category.class, 33333);
         System.out.println(deleteMenu);
         System.out.println(foundCategory);
-
     }
 
     @Test
@@ -176,6 +175,5 @@ public class ManyToOneAssociationTests {
         Category category1 = entityManager.find(Category.class, 33333);
         System.out.println("category1 = " + category1);
     }
-
 
 }
